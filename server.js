@@ -75,7 +75,7 @@ app.post('/movie', async(req, res) => {
     }
 })
 
-app.delete('/movie:id', async(req, res) => {
+app.delete('/movie/:id', async(req, res) => {
     const movieid = req.params.id
 
     try {

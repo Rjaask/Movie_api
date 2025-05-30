@@ -9,4 +9,14 @@ const pgPool = new pg.Pool({
     host: process.env.PG_HOST,
     port: process.env.PG_PORT,
 })
+
+pgPool.on('connect', () => {
+    console.log('Connected to database');
+});
+
+pgPool.on('error', (err) => {
+    console.error('Unexpected error on client', err);
+    process.exit(-1);
+});
+
 export {pgPool};
